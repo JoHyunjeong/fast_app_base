@@ -1,6 +1,8 @@
+import 'package:after_layout/after_layout.dart';
 import 'package:fast_app_base/screen/main/tab/tab_item.dart';
 import 'package:fast_app_base/screen/main/tab/tab_navigator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import '../../common/common.dart';
 import 'w_menu_drawer.dart';
@@ -12,9 +14,9 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => MainScreenState();
 }
 
-class MainScreenState extends State<MainScreen> with SingleTickerProviderStateMixin {
-  TabItem _currentTab = TabItem.home;
-  final tabs = [TabItem.home, TabItem.favorite];
+class MainScreenState extends State<MainScreen> with SingleTickerProviderStateMixin, AfterLayoutMixin {
+  TabItem _currentTab = TabItem.detection;
+  final tabs = [TabItem.detection, TabItem.result, TabItem.menu];
   final List<GlobalKey<NavigatorState>> navigatorKeys = [];
 
   int get _currentIndex => tabs.indexOf(_currentTab);
@@ -24,6 +26,15 @@ class MainScreenState extends State<MainScreen> with SingleTickerProviderStateMi
   bool get extendBody => true;
 
   static double get bottomNavigationBarBorderRadius => 30.0;
+
+  static const double bottomNavigatorHeight = 50;
+
+  @override
+  FutureOr<void> afterFirstLayout(BuildContext context) async {
+    // await login();
+    // await loading();
+    FlutterNativeSplash.remove();
+  }
 
   @override
   void initState() {
@@ -66,8 +77,8 @@ class MainScreenState extends State<MainScreen> with SingleTickerProviderStateMi
     final isFirstRouteInCurrentTab =
         (await _currentTabNavigationKey.currentState?.maybePop() == false);
     if (isFirstRouteInCurrentTab) {
-      if (_currentTab != TabItem.home) {
-        _changeTab(tabs.indexOf(TabItem.home));
+      if (_currentTab != TabItem.detection) {
+        _changeTab(tabs.indexOf(TabItem.detection));
         return false;
       }
     }

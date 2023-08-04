@@ -1,6 +1,6 @@
 import 'package:fast_app_base/common/common.dart';
 import 'package:fast_app_base/common/util/local_json.dart';
-import 'package:fast_app_base/screen/opensource/vo_package.dart';
+import 'package:fast_app_base/screen/main/tab/menu/opensource/vo_package.dart';
 import 'package:flutter/material.dart';
 
 import 'w_opensource_item.dart';
@@ -35,6 +35,7 @@ class _OpensourceScreenState extends State<OpensourceScreen> {
     return Scaffold(
       appBar: AppBar(
         title: 'opensource'.tr().text.make(),
+        backgroundColor: Color(0xff7398C9),
       ),
       body: ListView.separated(
         itemBuilder: (context, index) => OpensourceItem(packageList[index]),

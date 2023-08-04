@@ -73,6 +73,14 @@ dependencies:
   freezed: ^2.3.4
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.0
+  camera: ^0.10.5+2
+  image_picker: ^1.0.1
+  pdf: ^3.10.4
+  path_provider: ^2.0.15
+  flutter_email_sender: ^6.0.1
+  gallery_saver: ^2.3.2
+  flutter_animate: ^4.2.0+1
+  excel: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -102,11 +110,14 @@ flutter:
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
-  # the material Icons class.
+  # the material Icons classass.
   uses-material-design: true
   assets:
     - assets/json/
-    - assets/image/
+    - assets/results/
+    - assets/image/target_bacteria/
+    - assets/image/target_molds/
+    - assets/image/splash/
     - assets/image/icon/
     - assets/image/flag/
     - assets/image/darkmode/

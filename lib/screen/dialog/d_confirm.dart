@@ -5,7 +5,7 @@ import 'package:nav/dialog/dialog.dart';
 import '../../common/common.dart';
 
 class ConfirmDialog extends DialogWidget<SimpleResult> {
-  final String? message;
+  final String message;
   final String buttonText;
   final String cancelButtonText;
   final bool cancelable;
@@ -20,7 +20,7 @@ class ConfirmDialog extends DialogWidget<SimpleResult> {
     String? cancelButtonText,
     this.fontSize = 14,
     this.cancelable = true,
-    this.textAlign = TextAlign.start,
+    this.textAlign = TextAlign.start
   })  : buttonText = buttonText ?? 'close'.tr(),
         cancelButtonText = cancelButtonText ?? 'cancel'.tr();
 
@@ -86,7 +86,7 @@ class _MessageDialogState extends DialogState<ConfirmDialog> {
                                 child: Text(
                                   widget.buttonText,
                                   style: TextStyle(
-                                    color: context.appColors.confirmText,
+                                    color: context.appColors.text,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
                                     fontStyle: FontStyle.normal,
@@ -105,7 +105,7 @@ class _MessageDialogState extends DialogState<ConfirmDialog> {
                                 child: Text(
                                   widget.cancelButtonText,
                                   style: TextStyle(
-                                    color: context.appColors.confirmText,
+                                    color: context.appColors.text,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
                                     fontStyle: FontStyle.normal,
